@@ -21,6 +21,25 @@
                     <div class="menu-title">Dashboard</div>
                   </a>
                 </li>
+                <!--  -->
+
+                <li>
+                  <a href="javascript:;" class="has-arrow">
+                    <div class="parent-icon"><span class="material-symbols-outlined">apps</span>
+                    </div>
+                    <div class="menu-title">Students</div>
+                  </a>
+                  <ul>
+                    <li> <a href="{{URL('all-students')}}"><span class="material-symbols-outlined">arrow_right</span>All Students</a>
+                    </li>
+                    <li> <a href="{{URL('new-entry')}}"><span class="material-symbols-outlined">arrow_right</span>New Student</a>
+                    </li>
+                    
+                  </ul>
+                </li>
+                
+                <!--  -->
+                
                 <li>
                   <a href="javascript:;" class="has-arrow">
                     <div class="parent-icon"><span class="material-symbols-outlined">apps</span>
@@ -329,7 +348,7 @@
                    <img src="{{asset('assets/images/avatars/01.png')}}" alt="">
                 </div>
                 <div class="user-info">
-                  <h5 class="mb-0 user-name">Jhon Maxwell</h5>
+                  <h5 class="mb-0 user-name">{{Auth()->user()->name}}</h5>
                   <p class="mb-0 user-designation">UI Engineer</p>
                 </div>
               </div>
@@ -357,9 +376,14 @@
                 <li>
                   <div class="dropdown-divider mb-0"></div>
                 </li>
-                <li><a class="dropdown-item" href="javascript:;"><span class="material-symbols-outlined me-2">
+                <li><form class="dropdown-item" action="{{ route('logout') }}" method="post">
+                  <span class="material-symbols-outlined me-2">
+                  @csrf
+                  
+
                   logout
-                  </span><span>Logout</span></a>
+                  </span>
+                  <span><button type="submit">logout</button></span></form>
                 </li>
               </ul>
           </div>
