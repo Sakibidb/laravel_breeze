@@ -30,9 +30,25 @@
                     <div class="menu-title">Students</div>
                   </a>
                   <ul>
-                    <li> <a href="{{URL('all-students')}}"><span class="material-symbols-outlined">arrow_right</span>All Students</a>
+                    <li> <a href="{{URL('student')}}"><span class="material-symbols-outlined">arrow_right</span>All Students</a>
                     </li>
-                    <li> <a href="{{URL('new-entry')}}"><span class="material-symbols-outlined">arrow_right</span>New Student</a>
+                    <li> <a href="{{URL('student/create')}}"><span class="material-symbols-outlined">arrow_right</span>New Student</a>
+                    </li>
+                    
+                  </ul>
+                </li>
+
+
+                <li>
+                  <a href="javascript:;" class="has-arrow">
+                    <div class="parent-icon"><span class="material-symbols-outlined">apps</span>
+                    </div>
+                    <div class="menu-title">Catagory</div>
+                  </a>
+                  <ul>
+                    <li> <a href="{{URL('catagory')}}"><span class="material-symbols-outlined">arrow_right</span>All Catagory</a>
+                    </li>
+                    <li> <a href="{{URL('catagory/create')}}"><span class="material-symbols-outlined">arrow_right</span>New Catagory</a>
                     </li>
                     
                   </ul>
