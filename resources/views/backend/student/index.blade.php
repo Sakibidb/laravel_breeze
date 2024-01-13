@@ -12,17 +12,23 @@
                             <tr>
                                 <th scope="col">ID</th>
                                 <th scope="col">Name</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Class</th>
+                                <th scope="col">Catagory</th>
                                 <th scope="col">Action</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             @php $no = 1 @endphp
-                            @foreach($cats as $item)
+                            @foreach($peoducts as $item)
 
                             <tr>
                                 <td>{{$no++}}</td>
                                 <td>{{$item->name}}</td>
+                                <td>{{$item->description}}</td>
+                                <td>{{$item->price}}</td>
+                                <td>{{$item->catagory->name}}</td>
                                 <td>
                                     <a href="catagory/edit/{{$item['id']}}" class="btn btn-success btn-sm">Edit</a>
                                 </td>

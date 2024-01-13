@@ -16,8 +16,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
-    }
+        $data['peoducts'] = Product::all();
+        return view('backend.student.index', $data);    }
 
     /**
      * Show the form for creating a new resource.
