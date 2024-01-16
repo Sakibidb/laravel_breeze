@@ -14,7 +14,10 @@
                                 <th scope="col">Name</th>
                                 <th scope="col">Description</th>
                                 <th scope="col">Class</th>
+                                <th scope="col">tags</th>
+                                <th scope="col">Availability</th>
                                 <th scope="col">Catagory</th>
+                                <th scope="col">Image</th>
                                 <th scope="col">Action</th>
                                 <th scope="col">Action</th>
                             </tr>
@@ -28,7 +31,10 @@
                                 <td>{{$item->name}}</td>
                                 <td>{{$item->description}}</td>
                                 <td>{{$item->price}}</td>
+                                <td>{{$item->tags}}</td>
+                                <td>{{$item->availability}}</td>
                                 <td>{{$item->catagory->name}}</td>
+                                <td>{{$item->image}}</td>
                                 <td>
                                     <a href="catagory/edit/{{$item['id']}}" class="btn btn-success btn-sm">Edit</a>
                                 </td>

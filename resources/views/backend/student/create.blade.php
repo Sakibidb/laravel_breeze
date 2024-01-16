@@ -23,9 +23,41 @@
 							</div>
 							<div class="col-12 col-lg-6">
 								<label for="description" class="form-label">Description</label>
-
 								<input type="text" class="form-control quill-editor-full" id="description" placeholder="description" name="description" value="{{old('description')}}">
 							</div>
+
+							<label class="form-check-label" for="flexCheckSuccess">Availability</label>
+							<div class="form-check form-check-success">
+							<label class="form-check-label" for="flexCheckSuccess">Available</label>
+							<input class="form-check-input" type="checkbox" value="" id="flexCheckSuccess">
+								
+							</div>
+							<div class="form-check form-check-success">
+							<label class="form-check-label" for="flexCheckSuccess">Not Available</label>
+							<input class="form-check-input" type="checkbox" value="" id="flexCheckSuccess">
+								
+							</div>
+							<div class="col-12 col-lg-6">
+								<label for="description" class="form-label">Uplode</label>
+								<input type="file" class="form-control quill-editor-full" id="description" placeholder="description" name="image" value="{{old('image')}}">
+							</div>
+							<label class="form-check-label" for="flexCheckSuccess">Tags</label>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+								<label class="form-check-label" for="flexRadioDefault1">
+								  Default radio
+								</label>
+							</div>
+							<div class="form-check form-check-success">
+								<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioSuccess">
+								<label class="form-check-label" for="flexRadioSuccess">
+								  Success radio
+								</label>
+							  </div>
+
+
+
+
 							<div class="col-12 col-lg-6">
 								<label for="price" class="form-label">Price</label>
 								<input type="text" class="form-control" id="price" placeholder="price" name="price" value="{{old('price')}}">
