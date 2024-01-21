@@ -31,15 +31,26 @@
                                 <td>{{$item->name}}</td>
                                 <td>{{$item->description}}</td>
                                 <td>{{$item->price}}</td>
-                                <td>{{$item->tags}}</td>
+                                <td>
+                                    @if(is_array($item->tags))
+                                    <ul>
+                                        @foreach($item->tags as $tag)
+                                        <li>{{ $tag }}</li>
+                                        @endforeach
+                                    </ul>
+                                    @else
+                                    {{ $item->tags }}
+                                    @endif
+                                </td>
+
                                 <td>{{$item->availability}}</td>
                                 <td>{{$item->catagory->name}}</td>
                                 <td>{{$item->image}}</td>
                                 <td>
-                                    <a href="catagory/edit/{{$item['id']}}" class="btn btn-success btn-sm">Edit</a>
+                                    <a href="{{ route('student.edit', $item->id) }}" class="btn btn-success btn-sm">Edit</a>
                                 </td>
                                 <td>
-                                    <a href="{{URL('catagory/delete/$item->id')}}" class="btn btn-danger btn-sm">Delete</a>
+                                    <a href="{{ route('student.delete', $item->id) }}" class="btn btn-danger btn-sm">Delete</a>
                                 </td>
                             </tr>
                             @endforeach

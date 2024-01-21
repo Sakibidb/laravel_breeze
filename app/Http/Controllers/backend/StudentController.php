@@ -38,6 +38,8 @@ class StudentController extends Controller
             'description' => $request->description,
             'price' => $request->price,
             'catagory_id' => $request->catid,
+            'tags' => $request->tags,
+            'image'=> 'mimes:jpg,jpeg',
         ];
         $model = new Product();
         if ($model->insert($data)){
@@ -58,7 +60,9 @@ class StudentController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $student = Product::find($id);
+        $cats = Category::all();
+        return view('backend.student.edit', compact('student', 'cats'));
     }
 
     /**
@@ -75,5 +79,10 @@ class StudentController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function delete(string $id)
+    {
+        
     }
 }

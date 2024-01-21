@@ -10,9 +10,21 @@
 
 
 			<div class="card-body">
+				<div>
+					@if ($errors->any())
+					<div class="alert alert-danger">
+						<ul>
+							@foreach ($errors->all() as $error)
+							<li>{{ $error }}</li>
+							@endforeach
+						</ul>
+					</div>
+					@endif
+				</div>
 
 				<div class="bs-stepper-content">
-					<form action="{{route('student.store')}}" method="POST">
+
+					<form action="{{route('student.store')}}" method="POST" enctype="multipart/form-data" >
 						@csrf
 
 
@@ -26,37 +38,35 @@
 								<input type="text" class="form-control quill-editor-full" id="description" placeholder="description" name="description" value="{{old('description')}}">
 							</div>
 
-							<label class="form-check-label" for="flexCheckSuccess">Availability</label>
+							<label class="form-check-label" for="flexCheckSuccess">Tags</label>
 							<div class="form-check form-check-success">
-							<label class="form-check-label" for="flexCheckSuccess">Available</label>
-							<input class="form-check-input" type="checkbox" value="" id="flexCheckSuccess">
-								
+								<label class="form-check-label" for="flexCheckSuccess">Full slave</label>
+								<input class="form-check-input" type="checkbox" value="{{old('available')}}" id="flexCheckSuccess">
+
 							</div>
 							<div class="form-check form-check-success">
-							<label class="form-check-label" for="flexCheckSuccess">Not Available</label>
-							<input class="form-check-input" type="checkbox" value="" id="flexCheckSuccess">
-								
+								<label class="form-check-label" for="flexCheckSuccess">Half Slave</label>
+								<input class="form-check-input" type="checkbox" value="half" id="flexCheckSuccess">
 							</div>
 							<div class="col-12 col-lg-6">
 								<label for="description" class="form-label">Uplode</label>
 								<input type="file" class="form-control quill-editor-full" id="description" placeholder="description" name="image" value="{{old('image')}}">
 							</div>
 							<label class="form-check-label" for="flexCheckSuccess">Tags</label>
-							<div class="form-check">
-								<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-								<label class="form-check-label" for="flexRadioDefault1">
-								  Default radio
-								</label>
-							</div>
+							
 							<div class="form-check form-check-success">
 								<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioSuccess">
 								<label class="form-check-label" for="flexRadioSuccess">
-								  Success radio
+									Available
 								</label>
-							  </div>
+							</div>
 
-
-
+							<div class="form-check form-check-success">
+								<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioSuccess">
+								<label class="form-check-label" for="flexRadioSuccess">
+								Not Available
+								</label>
+							</div>
 
 							<div class="col-12 col-lg-6">
 								<label for="price" class="form-label">Price</label>
@@ -68,7 +78,7 @@
 									<option selected>Select One</option>
 
 									@foreach($cats as $cat)
-									<option value="{{$cat->id}}">{{$cat->name}}</option>
+									<option value="{{$cat->id}}" {{old('catagory')==$cat->id?'selected':''}}>{{$cat->name}}</option>
 									@endforeach
 
 								</select>

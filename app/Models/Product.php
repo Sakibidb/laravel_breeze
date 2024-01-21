@@ -12,10 +12,22 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'description', 'price', 'catagory_id'];
+    protected $fillable = ['name', 'description', 'price', 'catagory_id', 'tags', 'image'];
 
     public function catagory(): BelongsTo
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function setTagAttribute($value)
+    {
+        $this->attributes['tags'] = json_encode($value);
+    }
+
+
+    public function getTagAttribute($value)
+    {
+        // return $this->attributes['tag'] = json_decode($value);
+        return is_array($value) ? $value : json_decode($value, true);
     }
 }

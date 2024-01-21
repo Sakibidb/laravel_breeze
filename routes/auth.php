@@ -68,9 +68,9 @@ Route::middleware('auth')->group(function () {
                 ->name('student.store');
     Route::get('student/edit{id}', [StudentController::class, 'edit'])
                 ->name('student.edit');
-    Route::post('student/update', [StudentController::class, 'update'])
+    Route::post('student/update{id}', [StudentController::class, 'update'])
                 ->name('student.update');
-    Route::post('student/delete{id}', [StudentController::class, 'delete'])
+    Route::get('student/delete{id}', [StudentController::class, 'delete'])
                 ->name('student.delete');
 
                 // catagory
