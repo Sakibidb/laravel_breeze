@@ -5,6 +5,11 @@
         <div class="col-xl-12 mx-auto">
             <h6 class="mb-0 text-uppercase">Catagory Table</h6>
             <hr>
+            @if(session('success'))
+        <div class="alert alert-success">
+          {{ session('success') }}
+        </div> 
+    @endif
             <div class="card">
                 <div class="card-body">
                     <table class="table mb-0">
@@ -18,6 +23,7 @@
                                 <th scope="col">Availability</th>
                                 <th scope="col">Catagory</th>
                                 <th scope="col">Image</th>
+                                <th scope="col">Action</th>
                                 <th scope="col">Action</th>
                                 <th scope="col">Action</th>
                             </tr>
@@ -51,6 +57,9 @@
                                 </td>
                                 <td>
                                     <a href="{{ route('student.delete', $item->id) }}" class="btn btn-danger btn-sm">Delete</a>
+                                </td>
+                                <td>
+                                    <p class="btn-holder"><a href="{{ route('add.to.cart', $item->id) }}" class="btn btn-warning btn-block text-center" role="button">Add to cart</a> </p>
                                 </td>
                             </tr>
                             @endforeach
